@@ -10,14 +10,11 @@ program
 program.parse(process.argv);
 
 if (program.add) {
-  console.log(...program.args);
-  console.log(process.argv.length);
   api.add(...program.args)
 }
 
 if (program.clear) {
   api.clear();
-  console.log(process.argv.length)
 }
 
 if (process.argv.length === 2){
