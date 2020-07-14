@@ -1,5 +1,6 @@
 const {program} = require('commander');
 const pkg = require('./package.json');
+const api = require('./api.js');
 program.version(pkg.version);
 
 program
@@ -10,13 +11,15 @@ program.parse(process.argv);
 
 if (program.add) {
   console.log(...program.args);
-  console.log(process.argv.length)
+  console.log(process.argv.length);
+  api.add(...program.args)
 }
 
 if (program.clear) {
+  api.clear();
   console.log(process.argv.length)
 }
 
 if (process.argv.length === 2){
-  console.log('显示所有任务列表')
+  api.showAll()
 }
